@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Constants hidden in plain sight.  None of these are load-bearing for the puzzle,
+  but a solver who reads the stylesheet will find the same numbers turning up again.
+  --phi   golden ratio        (Chapter 01, and the seed of the Chapter 03 modulus)
+  --gamma Euler-Mascheroni
+  --rho1  the first nontrivial zero of the zeta function (Chapter 04)
+*/
+:root {
+  --phi: 1.6180339887498948;
+  --gamma: 0.5772156649015329;
+  --rho1: 14.134725141734693;
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+  --bg: #060a12;
+  --fg: #e3eaf4;
+  --rule: #1c2a3c;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: #1c2a3c #060a12;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(135, 167, 206, 0.24);
+  color: #ffffff;
+}
+
+/* Focus ring: visible, but in keeping with everything else. */
+:focus-visible {
+  outline: 1px solid #87a7ce;
+  outline-offset: 3px;
+}
+
+/* --- KaTeX tuning ------------------------------------------------------- */
+.katex {
+  font-size: 1.05em;
+  color: #dae4f1;
+}
+.katex-display {
+  margin: 1.4rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35rem 0;
+}
+.katex-display > .katex {
+  white-space: nowrap;
+}
+
+/* --- prose defaults ----------------------------------------------------- */
+.doc p {
+  margin: 0 0 1.15rem;
+  line-height: 1.75;
+}
+.doc p:last-child {
+  margin-bottom: 0;
+}
+
+/* Thin horizontal rule used to separate document sections. */
+.rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rule) 12%, var(--rule) 88%, transparent);
+}
+
+/* Tabular numerals for every data table in the archive. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

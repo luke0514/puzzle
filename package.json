@@ -1,0 +1,34 @@
+{
+  "name": "a-puzzle-for-zosia",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/a-puzzle-for-zosia next build",
+    "serve": "npx --yes http-server out -p 8099",
+    "verify": "python3 tools/solve.py",
+    "verify:browser": "node tools/walkthrough.mjs",
+    "generate": "python3 tools/generators/emit.py"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "katex": "^0.16.11",
+    "next": "14.2.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "playwright": "^1.63.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
+  }
+}
